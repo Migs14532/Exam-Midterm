@@ -1,7 +1,7 @@
 const products = [
     { "id": 1, "name": "Laptop", "price": 1500, "stock": 5, "image": "https://img.freepik.com/premium-psd/laptop-mock-up_1310-197.jpg" },
     { "id": 2, "name": "Headphones", "price": 100, "stock": 10, "image": "https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817601.jpg" },
-    { "id": 3, "name": "Keyboard", "price": 50, "stock": 20, "image": "https://img.freepik.com/free-photo/white-keyboard-plant_23-2148700805.jpg" }
+    { "id": 3, "name": "Keyboard", "price": 50, "stock": 20, "image": "https://img.freepik.com/free-photo/white-keyboard-plant_23-2148708005.jpg" }
 ];
 
 const productContainer = document.getElementById('product-list');
