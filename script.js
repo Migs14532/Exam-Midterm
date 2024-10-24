@@ -22,3 +22,48 @@ products.forEach(product => {
     `;
     productContainer.innerHTML += productCard;
 });
+
+
+let cart = [];
+
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('add-to-cart')) {
+        const productId = event.target.getAttribute('data-id');
+        addToCart(productId);
+    }
+});
+
+function addToCart(id) {
+    const product = products.find(p => p.id == id);
+    
+    if (product && product.stock > 0) {
+        cart.push(product);
+        product.stock--; 
+        alert(`${product.name} added to the cart!`);
+        
+      
+        updateProductList();
+    } else {
+        alert('Product out of stock!');
+    }
+}
+
+function updateProductList() {
+    productContainer.innerHTML = ''; 
+    products.forEach(product => {
+        const productCard = `
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">Price: $${product.price}</p>
+                        <p class="card-text">Stock: ${product.stock}</p>
+                        <button class="btn btn-primary add-to-cart" data-id="${product.id}" ${product.stock === 0 ? 'disabled' : ''}>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        productContainer.innerHTML += productCard;
+    });
+}
